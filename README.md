@@ -3,6 +3,10 @@
 Wikipedia has a great definition of Kafka:  
 > Apache Kafka is a distributed event store and stream-processing platform. It is an open-source system developed by the Apache Software Foundation written in Java and Scala. The project aims to provide a unified, high-throughput, low-latency platform for handling real-time data feeds. Kafka can connect to external systems (for data import/export) via Kafka Connect, and provides the Kafka Streams libraries for stream processing applications. Kafka uses a binary TCP-based protocol that is optimized for efficiency and relies on a "message set" abstraction that naturally groups messages together to reduce the overhead of the network roundtrip. This "leads to larger network packets, larger sequential disk operations, contiguous memory blocks […] which allows Kafka to turn a bursty stream of random message writes into linear writes.
 I think of Kafka as a distributed log system, and you can connect your application to produce messages to it. On the other side, you can attach applications called consumers to read from it.
+
+![image](https://user-images.githubusercontent.com/2369982/166106915-e2c0b109-1bf8-4f1b-8c3b-00e45f41c5e3.png)
+
+
 I want to show you what Kafka is and how it works using hands-on examples. To accomplish this, we are going to use Docker and Python.
 Requirements
 Docker (installation guide)
