@@ -83,7 +83,12 @@ Let's go through the code in case you are new to Python.
 ## Consuming messages from our topic
 
 Before we jump into the code, we will need to understand a bit how Kafka manages the consumption of the messages.
-Image author: https://docs.datastax.com/en/kafka/doc/kafka/kafkaHowMessages.htmlThe producer application produces messages to the broker for a given topic, and multiple consumers can read from the topic in a independent way or sharing the messages between multiple consumers.
+
+![image](https://user-images.githubusercontent.com/2369982/166106681-cbee23ad-b335-4992-ab5e-43bb59f6ddcc.png)
+
+Image author: https://docs.datastax.com/en/kafka/doc/kafka/kafkaHowMessages.html
+
+The producer application produces messages to the broker for a given topic, and multiple consumers can read from the topic in a independent way or sharing the messages between multiple consumers.
 Kafka tracks which messages were processed by each consumer application using a consumer group id. Consumers under a same group id will share the messages, parallelizing the work of consuming the messages.
 We also need to tell Kafka from where we want to start reading, from the oldest message or from the most recent one.
 
@@ -112,6 +117,11 @@ key=b'373' value=b'{"pageview": {"url": "URL"}}'
 
 What makes Kafka powerful is how easy we can parallelize the consumption of the messages, taking away complexity from your code.
 If you try to start a second consumer with the same consumer group id for our topic pageview, you will notice that the new consumer will start consuming messages, but the old one will become idle. This is because we didn't specify the number of partitions when we created our topic, and the default is one. The number of partition defines the number of consumer for a given consumer group id.
+
+![image](https://user-images.githubusercontent.com/2369982/166106699-647dc954-041c-4422-a4b2-40e1081603c3.png)
+
+![image](https://user-images.githubusercontent.com/2369982/166106704-fdb279b0-1c66-4e51-8192-e532e615d99b.png)
+
 
 One consumer idle due to the number of partitionsLet's fix our topic configuration:
 
