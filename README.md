@@ -141,5 +141,8 @@ kafka-topics.sh --topic pageview --describe --bootstrap-server localhost:9092
 Topic: pageview TopicId: yG6RS5SESlefaECYvn4mxQ PartitionCount: 2 ReplicationFactor: 1 Configs: segment.bytes=1073741824
  Topic: pageview Partition: 0 Leader: 1001 Replicas: 1001 Isr: 1001
  Topic: pageview Partition: 1 Leader: 1001 Replicas: 1001 Isr: 1001
-Now you can start a second consumer, and will notice that they will share the work.
 ```
+
+Now you can start a second consumer, and will notice that they will share the work.
+
+
